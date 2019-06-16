@@ -1,15 +1,20 @@
-var countDownDate = new Date("Jul 5, 2019 13:37:00").getTime();
+let countDownDate = new Date("Jul 5, 2019 13:37:00").getTime();
 
-var x = setInterval(function() {
+countdown();
 
-  var now = new Date().getTime();
+let x = setInterval(function() {
+  countdown();
+}, 1000);
 
-  var distance = countDownDate - now;
+function countdown() {
+  let now = new Date().getTime();
 
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  let distance = countDownDate - now;
+
+  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   document.getElementById("countdown").innerHTML = "You have to wait " + days + "d " + hours + "h "  + minutes + "m " + seconds + "s " + "until release.";
 
@@ -17,4 +22,4 @@ var x = setInterval(function() {
     clearInterval(x);
     document.getElementById("countdown").innerHTML = "Released";
   }
-}, 1000);
+}
